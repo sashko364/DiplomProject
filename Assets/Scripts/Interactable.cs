@@ -19,7 +19,7 @@ public class Interactable : MonoBehaviour
     {
         if(isFocused){
             float distance = Vector3.Distance(drone.position, interactionTransform.position);
-            
+
             if(!hasInteracted && distance >= radius){
                 hasInteracted = true;
                 dialogue.TriggerDialogue();

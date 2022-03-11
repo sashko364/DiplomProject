@@ -366,7 +366,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 14, y: 0}
-  m_SizeDelta: {x: 4000, y: 800}
+  m_SizeDelta: {x: 5000, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &231920642
 Animator:
@@ -872,7 +872,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 14, y: 0}
-  m_SizeDelta: {x: 4000, y: 800}
+  m_SizeDelta: {x: 5000, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377927498
 MonoBehaviour:
@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 6
   interactionTransform: {fileID: 474133671}
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 474133676}
 --- !u!1 &493119539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,6 +2241,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -3068240195741245191, guid: b9054e09d2553344c869b47c58f108a0, type: 3}
   m_PrefabInstance: {fileID: 2138514256}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1182818816 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7142933970241471619, guid: b9054e09d2553344c869b47c58f108a0, type: 3}
+  m_PrefabInstance: {fileID: 2138514256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &1182818819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2270,6 +2275,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 104.71933, y: 55.080894, z: 27.769709}
   m_Center: {x: 0, y: -18.001234, z: 13.884854}
+--- !u!114 &1182818821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182818815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b1fac50f411ba469314573bba94aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Box 007
+    sentences:
+    - Hello from Box 007
+--- !u!114 &1182818822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182818815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 6
+  interactionTransform: {fileID: 1182818816}
+  dialogue: {fileID: 1182818821}
 --- !u!1 &1216685206 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4225914887560890740, guid: b9054e09d2553344c869b47c58f108a0, type: 3}
@@ -3469,6 +3505,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4444558461230370346, guid: b9054e09d2553344c869b47c58f108a0, type: 3}
   m_PrefabInstance: {fileID: 2138514256}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2069542624 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1698215504171738276, guid: b9054e09d2553344c869b47c58f108a0, type: 3}
+  m_PrefabInstance: {fileID: 2138514256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!136 &2069542627
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3499,6 +3540,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &2069542629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069542623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b1fac50f411ba469314573bba94aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Sphere 001
+    sentences:
+    - Sphere 001 hello
+--- !u!114 &2069542630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069542623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 6
+  interactionTransform: {fileID: 2069542624}
+  dialogue: {fileID: 0}
 --- !u!1 &2133522920 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4010433742624984557, guid: b9054e09d2553344c869b47c58f108a0, type: 3}

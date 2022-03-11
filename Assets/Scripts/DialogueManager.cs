@@ -22,8 +22,6 @@ public class DialogueManager : MonoBehaviour {
 
 	public void StartDialogue (Dialogue dialogue)
 	{
-		Debug.Log(nameText);
-		Debug.Log(dialogue.name);
 
 		nameText.name = dialogue.name;
 		
