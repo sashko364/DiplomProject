@@ -7,28 +7,33 @@ public class Interactable : MonoBehaviour
     public float radius = 2f;
     public Transform interactionTransform;
 	public DialogueTrigger dialogue;
-    bool isFocused = false;
-    bool hasInteracted = false;
+    bool isFocused;
+    bool hasInteracted;
     Transform drone;
 
-    void Start() {
-		dialogue =  GetComponent<DialogueTrigger>();
+    public virtual void Interact() {
+      if (interactionTransform != null) {
+
+        if(isFocused){
+            dialogue = interactionTransform.GetComponentInParent<DialogueTrigger>();
+            float distance = Vector3.Distance(drone.position, interactionTransform.position);
+            Debug.Log("hasInteracted: "+hasInteracted);
+            if(!hasInteracted && distance <= radius){
+                hasInteracted = true;
+                Debug.Log("==============TriggerDialogue==================");
+                dialogue?.TriggerDialogue();
+            } else {
+                 dialogue?.EndDialogue();
+            }
+        } else {
+            OnDefocused();
+        }
+      }
     }
 
     void Update()
     {
-        if(isFocused){
-            float distance = Vector3.Distance(drone.position, interactionTransform.position);
-
-            if(!hasInteracted && distance >= radius){
-                hasInteracted = true;
-                dialogue.TriggerDialogue();
-            } 
-        } else {
-            OnDefocused();
-            hasInteracted = false;
-            dialogue.EndDialogue();
-        }
+        Interact();
     }
 
     // Called when the object starts being focused
@@ -41,7 +46,7 @@ public class Interactable : MonoBehaviour
 	// Called when the object is no longer focused
 	public void OnDefocused (){
 		isFocused = false;
-		hasInteracted = false;
+		hasInteracted = true;
 		drone = null;
 	}
 }

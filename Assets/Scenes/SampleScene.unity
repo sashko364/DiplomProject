@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2924528, g: 0.13629404, b: 0.154537, a: 0.59607846}
+  m_Color: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 0.59607846}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1038,7 +1038,9 @@ MonoBehaviour:
   dialogue:
     name: Box 002
     sentences:
-    - ZDRAVEITE
+    - Hello from Box 002
+    - Sentence 2
+    - Sentence 3
 --- !u!114 &474133677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,7 +1053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 6
+  radius: 50
   interactionTransform: {fileID: 474133671}
   dialogue: {fileID: 474133676}
 --- !u!1 &493119539
@@ -1334,7 +1336,7 @@ Transform:
   m_GameObject: {fileID: 546718185}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1354, y: -639, z: -360}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 10, y: 20, z: 10}
   m_Children:
   - {fileID: 493119540}
   m_Father: {fileID: 367322311}
@@ -2273,8 +2275,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 104.71933, y: 55.080894, z: 27.769709}
-  m_Center: {x: 0, y: -18.001234, z: 13.884854}
+  m_Size: {x: 104.71933, y: 49.887657, z: 27.769709}
+  m_Center: {x: 0, y: -20.597868, z: 13.884854}
 --- !u!114 &1182818821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2291,6 +2293,8 @@ MonoBehaviour:
     name: Box 007
     sentences:
     - Hello from Box 007
+    - Sent 2
+    - Sent 3
 --- !u!114 &1182818822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2303,7 +2307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 6
+  radius: 55
   interactionTransform: {fileID: 1182818816}
   dialogue: {fileID: 1182818821}
 --- !u!1 &1216685206 stripped
@@ -3189,10 +3193,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 10.564355
-  m_Height: 86.71467
+  m_Radius: 6.119034
+  m_Height: 86.714676
   m_Direction: 1
-  m_Center: {x: 44.023228, y: -88.426445, z: 10.811777}
+  m_Center: {x: 44.023216, y: -88.42644, z: 15.257099}
 --- !u!54 &1978337803
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3520,10 +3524,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 50.489655
-  m_Height: 102.0533
+  m_Radius: 59.121597
+  m_Height: 118.243195
   m_Direction: 1
-  m_Center: {x: -110.39372, y: -85.84103, z: 72.97716}
+  m_Center: {x: -98.37953, y: -73.130066, z: 69.594894}
 --- !u!54 &2069542628
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3556,6 +3560,8 @@ MonoBehaviour:
     name: Sphere 001
     sentences:
     - Sphere 001 hello
+    - Sent 2
+    - Sent 3
 --- !u!114 &2069542630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3568,7 +3574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 6
+  radius: 220
   interactionTransform: {fileID: 2069542624}
   dialogue: {fileID: 0}
 --- !u!1 &2133522920 stripped

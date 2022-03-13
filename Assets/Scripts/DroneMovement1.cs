@@ -13,13 +13,13 @@ public class DroneMovement1 : MonoBehaviour
 
     void Start(){
         agent = GetComponent<NavMeshAgent>();
-        //agent.updateRotation = false;
-        //agent.updateUpAxis = false;
+        /*agent.updateRotation = false;
+        agent.updateUpAxis = false;*/
         GetComponent<FocusHandler>().onFocusChangedCallback += OnFocusChanged;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //if(OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight)){
         if(Input.GetKey("d")){
@@ -40,17 +40,8 @@ public class DroneMovement1 : MonoBehaviour
         if(Input.GetKey("s")){
             rb.AddForce(0, 0, -500 * Time.deltaTime);
         }
-
-        /*if (target != null){
-			move(target.position);
-			// FaceTarget();
-		}*/
     }
 
-    /*public void move(Vector3 point){
-        Debug.Log(agent);
-        agent.SetDestination(point);
-    }*/
 
     void OnFocusChanged(Interactable newFocus){
 		if (newFocus != null){
@@ -65,9 +56,9 @@ public class DroneMovement1 : MonoBehaviour
 		}
 	}
 
-    void FaceTarget(){
+    /*void FaceTarget(){
 		Vector3 direction = (target.position - transform.position).normalized;
 		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-	}
+	}*/
 }
