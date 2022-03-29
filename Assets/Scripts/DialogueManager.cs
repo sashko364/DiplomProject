@@ -2,30 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class DialogueManager : MonoBehaviour {
 
 	public Text nameText;
+	public Text dialogueText;
+
+	public Button goNext;
 
 	public Animator animator;
 
 	private Queue<string> sentences;
 
-	private bool waiting;
-
-	float waitTime = 2f;
 	// Use this for initialization
 	void Start () {
 		sentences = new Queue<string>();
-		animator.SetBool("IsOpen",  false);
+		goNext.onClick.AddListener(DisplayNextSentence);
+	}
+
+	void OnDestroy() {
+		goNext.onClick.RemoveListener(DisplayNextSentence);	
 	}
 
 	public void StartDialogue (Dialogue dialogue)
 	{
-		nameText.name = dialogue.name;
-		Debug.Log("=============Start Dialog===================");
-		animator.SetBool("IsOpen",  true);
+		animator.SetBool("IsOpen", true);
+
+		nameText.text = dialogue.name;
+
 		sentences.Clear();
 
 		foreach (string sentence in dialogue.sentences)
@@ -33,43 +37,37 @@ public class DialogueManager : MonoBehaviour {
 			sentences.Enqueue(sentence);
 		}
 
-		DisplaySentences();
+		DisplayNextSentence();
 	}
 
-	public void DisplaySentences ()
+	public void DisplayNextSentence ()
 	{
- 		if (sentences.Count == 0)
- 		{
- 			EndDialogue();
- 			return;
- 		}
-
-		while(sentences.Count > 0) {
-			string sentence = sentences.Dequeue();
-			Debug.Log("Dequueing"+ sentence);
-			Debug.Log("Quee"+ sentences);
-
-			nameText.text += sentence + "\n";
-			//  if(!waiting){
- 			// 	StartCoroutine(WaitForSeconds(waitTime, sentence));
-			//  }
+		Debug.Log("Clicked Event");
+		if (sentences.Count == 0)
+		{
+			EndDialogue();
+			return;
 		}
 
-
+		string sentence = sentences.Dequeue();
+		dialogueText.text += sentence;
 	}
 
-	IEnumerator WaitForSeconds(float waitTime, string sentence){
-		waiting = true;
-		yield return new WaitForSeconds(waitTime);
-		//dieing animation here
-		waiting = !waiting;
+	IEnumerator TypeSentence (string sentence)
+	{
+		dialogueText.text = "";
+		foreach (char letter in sentence.ToCharArray())
+		{
+			dialogueText.text += letter;
+			yield return null;
+		}
 	}
 
 	public void EndDialogue()
 	{
-		nameText.text = "";
 		sentences.Clear();
-		StopAllCoroutines();
+		dialogueText.text = "";
+		nameText.text = "";
 		animator.SetBool("IsOpen", false);
 	}
 
