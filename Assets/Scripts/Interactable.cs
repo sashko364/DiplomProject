@@ -3,29 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/*	
-	This component is for all objects that the player can
-	interact with such as enemies, items etc. It is meant
-	to be used as a base class.
-*/
-
 public class Interactable : MonoBehaviour {
-		// How close do we need to be to interact?
-	public Transform interactionTransform;	// The transform from where we interact in case you want to offset it
-    public Animator animator;// Is this interactable currently being focused?
+	public Transform interactionTransform;
+    public Animator animator;
 	public DialogueTrigger dialogue;
 
     public int Id;
 
     public Text hint;
-    	// Reference to the player transform
-	bool hasInteracted = false;	// Have we already interacted with the object?
+	bool hasInteracted = false;
 
 	void Start()
 	{   
 		dialogue =  GetComponent<DialogueTrigger>();
 
-		// This method is meant to be overwritten
 		Debug.Log("Interacting with " + transform.name);
         animator.SetBool("ShowIcon", false);
 		hasInteracted = false;
@@ -48,7 +39,7 @@ public class Interactable : MonoBehaviour {
             dialogue.TriggerDialogue();
         }
     }
-	// Called when the object starts being focused
+
 	public void onDialogueTrigerEnter (int id)
 	{
         if (this.Id == id) {
@@ -59,10 +50,9 @@ public class Interactable : MonoBehaviour {
 
 	}
 
-	// Called when the object is no longer focused
 	public void onDialogueTrigerExit (int id)
 	{
-        if (this.Id ==id) {
+        if (this.Id == id) {
             animator.SetBool("ShowIcon", false);    
             dialogue.EndDialogue();
             hint.text = "";

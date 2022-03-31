@@ -28,8 +28,7 @@
  
              return;
          }
- 
-         // compute position
+         
          if(offsetPositionSpace == Space.Self)
          {
              transform.position = target.TransformPoint(offsetPosition);
@@ -39,7 +38,6 @@
              transform.position = target.position + offsetPosition;
          }
  
-         // compute rotation
          if(lookAt)
          {
              transform.LookAt(target);
