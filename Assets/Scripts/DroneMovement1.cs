@@ -63,7 +63,7 @@ public class DroneMovement1 : MonoBehaviour
             interactable = other.GetComponentInParent<Interactable>();
             Debug.Log("interactable:" + interactable);
             EventSystem.current.DialogueTrigerEnter(interactable.Id);
-            if(Input.GetKey("e")){
+            if(Input.GetKeyDown("e")){
                 EventSystem.current.DialogueInteracted(interactable.Id); 
             }
         }

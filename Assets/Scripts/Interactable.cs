@@ -10,17 +10,15 @@ public class Interactable : MonoBehaviour {
 
     public int Id;
 
-    public Text hint;
 	bool hasInteracted = false;
+    int count = 0;
 
 	void Start()
 	{   
 		dialogue =  GetComponent<DialogueTrigger>();
 
-		Debug.Log("Interacting with " + transform.name);
         animator.SetBool("ShowIcon", false);
 		hasInteracted = false;
-        hint.text = "";
         EventSystem.current.onDialogueTrigerEnter += onDialogueTrigerEnter;
         EventSystem.current.onDialogueInteracted += onDialogueInteracted;
         EventSystem.current.onDialogueTrigerExit += onDialogueTrigerExit;
@@ -33,8 +31,11 @@ public class Interactable : MonoBehaviour {
     }
 
     public void onDialogueInteracted (int id) {
+
         if (!hasInteracted && this.Id == id) {
-             hasInteracted = true;   
+            count++;
+            hasInteracted = true;
+            Debug.Log("Interacting... "+ dialogue.name);
             animator.SetBool("ShowIcon", false);
             dialogue.TriggerDialogue();
         }
@@ -44,7 +45,6 @@ public class Interactable : MonoBehaviour {
 	{
         if (this.Id == id) {
             animator.SetBool("ShowIcon", true);
-            hint.text = "Press E to interact";
 		    hasInteracted = false;
         }
 
@@ -55,7 +55,6 @@ public class Interactable : MonoBehaviour {
         if (this.Id == id) {
             animator.SetBool("ShowIcon", false);    
             dialogue.EndDialogue();
-            hint.text = "";
             hasInteracted = false;
         }
 	}
