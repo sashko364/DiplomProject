@@ -14,13 +14,16 @@ public class DialogueManager : MonoBehaviour {
 	private Button goNext;
 	[SerializeField]
 	private Animator animator;
-
+	
 	private Queue<string> sentences;
+
+	private DroneMovement drone;
 
 	// Use this for initialization
 	void Start () {
 		sentences = new Queue<string>();
 		goNext.onClick.AddListener(DisplayNextSentence);
+		drone = FindObjectOfType<DroneMovement>();
 	}
 	void Update() {
 		 if(Input.GetKeyDown("n")){
@@ -69,6 +72,7 @@ public class DialogueManager : MonoBehaviour {
 			return;
 		}
 
+
 		string sentence = sentences.Dequeue();
 		dialogueText.text = sentence;
 	}
@@ -80,6 +84,7 @@ public class DialogueManager : MonoBehaviour {
 		dialogueText.text = "";
 		nameText.text = "";
 		animator.SetBool("IsOpen", false);
+		drone.ShouldMove(true);
 	}
 
 }
