@@ -4,21 +4,14 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Threading;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class DroneMovement1 : MonoBehaviour
 {
-    public Rigidbody rb;
-    Transform target;
-    NavMeshAgent agent;
-    public Transform self;
+    [SerializeField]
+    private Rigidbody rb;
+    [SerializeField]
+    private Transform self;
 
     Interactable interactable;
-
-    void Start() {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-    }
 
     void Update() {
         Moving(true);
@@ -58,10 +51,10 @@ public class DroneMovement1 : MonoBehaviour
     
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("coliding:" + other);
+        //Debug.Log("coliding:" + other);
         if (other != null) {
             interactable = other.GetComponentInParent<Interactable>();
-            Debug.Log("interactable:" + interactable);
+            //Debug.Log("interactable:" + interactable);
             EventSystem.current.DialogueTrigerEnter(interactable.Id);
             if(Input.GetKeyDown("e")){
                 EventSystem.current.DialogueInteracted(interactable.Id); 
@@ -75,7 +68,7 @@ public class DroneMovement1 : MonoBehaviour
 
         if (other != null) {
             interactable = other.GetComponentInParent<Interactable>();
-            Debug.Log("uncoliding:" + other);
+            //Debug.Log("uncoliding:" + other);
             EventSystem.current.DialogueTrigerExit(interactable.Id);
         }
         interactable = null;

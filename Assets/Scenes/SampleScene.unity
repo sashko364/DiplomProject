@@ -1235,7 +1235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 233518525}
   animator: {fileID: 233518528}
   dialogue: {fileID: 233518527}
   Id: 1312
@@ -2256,7 +2255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 474133671}
   animator: {fileID: 474133672}
   dialogue: {fileID: 474133676}
   Id: 0
@@ -2441,7 +2439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 521685680}
   animator: {fileID: 521685681}
   dialogue: {fileID: 521685686}
   Id: 4
@@ -2674,7 +2671,6 @@ GameObject:
   - component: {fileID: 546718187}
   - component: {fileID: 546718186}
   - component: {fileID: 546718193}
-  - component: {fileID: 546718192}
   - component: {fileID: 546718190}
   m_Layer: 0
   m_Name: Drone
@@ -2775,28 +2771,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 546718193}
   self: {fileID: 546718189}
---- !u!195 &546718192
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546718185}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!54 &546718193
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2854,7 +2828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 596160292}
   animator: {fileID: 596160293}
   dialogue: {fileID: 596160295}
   Id: 45
@@ -3259,7 +3232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 674699452}
   animator: {fileID: 674699455}
   dialogue: {fileID: 674699453}
   Id: 23
@@ -3304,7 +3276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 679385420}
   animator: {fileID: 679385423}
   dialogue: {fileID: 679385422}
   Id: 88
@@ -3554,7 +3525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 688051503}
   animator: {fileID: 688051504}
   dialogue: {fileID: 688051505}
   Id: 3
@@ -4032,7 +4002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 734544627}
   animator: {fileID: 734544633}
   dialogue: {fileID: 734544628}
   Id: 6
@@ -5121,7 +5090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 981777320}
   animator: {fileID: 981777323}
   dialogue: {fileID: 981777322}
   Id: 82
@@ -5343,7 +5311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 1018663402}
   animator: {fileID: 1018663405}
   dialogue: {fileID: 1018663404}
   Id: 73
@@ -5738,7 +5705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 1123290360}
   animator: {fileID: 1123290361}
   dialogue: {fileID: 1123290365}
   Id: 7
@@ -5916,7 +5882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 1182818816}
   animator: {fileID: 1182818817}
   dialogue: {fileID: 1182818821}
   Id: 1
@@ -6044,7 +6009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 1204034541}
   animator: {fileID: 1204034544}
   dialogue: {fileID: 1204034542}
   Id: 33
@@ -7161,7 +7125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 1499460471}
   animator: {fileID: 1499460472}
   dialogue: {fileID: 1499460477}
   Id: 5
@@ -7364,7 +7327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 1574264881}
   animator: {fileID: 1574264884}
   dialogue: {fileID: 1574264882}
   Id: 1948
@@ -8838,7 +8800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 2009695440}
   animator: {fileID: 2009695445}
   dialogue: {fileID: 2009695441}
   Id: 2
@@ -9131,11 +9092,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4444558461230370346, guid: b9054e09d2553344c869b47c58f108a0, type: 3}
   m_PrefabInstance: {fileID: 2138514256}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2069542624 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -1698215504171738276, guid: b9054e09d2553344c869b47c58f108a0, type: 3}
-  m_PrefabInstance: {fileID: 2138514256}
-  m_PrefabAsset: {fileID: 0}
 --- !u!136 &2069542627
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9197,7 +9153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 2069542624}
   animator: {fileID: 0}
   dialogue: {fileID: 0}
   Id: 0
@@ -9345,7 +9300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a41b7a2211e748b9b5ccda826a365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 2124770086}
   animator: {fileID: 2124770089}
   dialogue: {fileID: 2124770087}
   Id: 66

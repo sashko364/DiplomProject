@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour {
-	public Transform interactionTransform;
-    public Animator animator;
-	public DialogueTrigger dialogue;
-
+    [SerializeField]
+    private Animator animator;
+	[SerializeField]
+    private DialogueTrigger dialogue;
+    [SerializeField]
     public int Id;
 
 	bool hasInteracted = false;
-    int count = 0;
 
 	void Start()
 	{   
@@ -33,9 +30,7 @@ public class Interactable : MonoBehaviour {
     public void onDialogueInteracted (int id) {
 
         if (!hasInteracted && this.Id == id) {
-            count++;
             hasInteracted = true;
-            Debug.Log("Interacting... "+ dialogue.name);
             animator.SetBool("ShowIcon", false);
             dialogue.TriggerDialogue();
         }

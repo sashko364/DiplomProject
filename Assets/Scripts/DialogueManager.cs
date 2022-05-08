@@ -4,15 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour {
-
-	public Text nameText;
-	public Text dialogueText;
-
-	public Image img;
-
-	public Button goNext;
-
-	public Animator animator;
+	[SerializeField]
+	private Text nameText;
+	[SerializeField]
+	private Text dialogueText;
+	[SerializeField]
+	private Image img;
+	[SerializeField]
+	private Button goNext;
+	[SerializeField]
+	private Animator animator;
 
 	private Queue<string> sentences;
 
@@ -23,8 +24,6 @@ public class DialogueManager : MonoBehaviour {
 	}
 	void Update() {
 		 if(Input.GetKeyDown("n")){
-			StartCoroutine(WaitFor());
-
             DisplayNextSentence();
     	}
 	}
@@ -62,16 +61,10 @@ public class DialogueManager : MonoBehaviour {
 
 	}
 
-	IEnumerator WaitFor() {
-		yield return new WaitForSeconds(5);
-	}
-
 	public void DisplayNextSentence ()
 	{
-		Debug.Log("senteces:"+ sentences.Count);
 		if (sentences.Count == 0)
 		{
-			StartCoroutine(WaitFor());
 			EndDialogue();
 			return;
 		}
