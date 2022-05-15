@@ -17,14 +17,9 @@ public class DroneMovement : MonoBehaviour
 
     float maxSpeed = 25;
 
-    private float mouseSensitivity = 100f;
-
-    private float xRotation = 0f;
-
     private void Start()
     {
         this.isMoving = true;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update() {
@@ -68,21 +63,12 @@ public class DroneMovement : MonoBehaviour
                 rb.AddForce(0, 0, -500 * maxSpeed * Time.deltaTime);
             }
 
-            //Rotate();
+            if (Input.GetKey("r")){
+                Thread.Sleep(500);
+                self.Rotate(0f, 90f, 0f);
+            }
         }
     }
-
-    /*public void Rotate()
-    {
-        float x = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float y = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        Debug.Log(x +"==="+ y);
-        xRotation -= y;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        self.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        self.Rotate(x, y,0);
-
-    }*/
 
 
     private void OnTriggerStay(Collider other)
