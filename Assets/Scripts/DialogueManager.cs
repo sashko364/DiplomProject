@@ -43,10 +43,10 @@ public class DialogueManager : MonoBehaviour {
 			goNext.gameObject.SetActive(false);
 			
 			goNext.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
-			img.GetComponent<RectTransform>().sizeDelta = new Vector2(1500, 1200);
+			img.GetComponent<RectTransform>().sizeDelta = new Vector2(1300, 1000);
 			img.sprite = dialogue.img.sprite;
 		} else {
-			goNext.GetComponent<RectTransform>().sizeDelta = new Vector2(250, 500);
+			goNext.GetComponent<RectTransform>().sizeDelta = new Vector2(250, 300);
 			img.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
 
 		}

@@ -9,21 +9,45 @@ public class DroneMovement : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     [SerializeField]
-    private Transform self;
+    private Transform camera;
 
     Interactable interactable;
 
     bool isMoving;
 
-    float maxSpeed = 25;
+    float maxSpeed = 35;
+
+    float speed = 24;
+
+    float dragSpeed = 5;
+
+    Vector3 direction;
+
+    float h = 0;
+    float v = 0;
+
 
     private void Start()
     {
         this.isMoving = true;
+        rb.freezeRotation = true;
     }
 
-    void Update() {
-        Moving(this.isMoving);
+    private void Update()
+    {
+        if (this.isMoving)
+        {
+            GetInput();
+        }
+        rb.drag = dragSpeed;
+    }
+
+    private void FixedUpdate()
+    {
+        if (this.isMoving)
+        {
+            MovePlayer();
+        }
     }
 
     public void ShouldMove(bool moving)
@@ -33,67 +57,56 @@ public class DroneMovement : MonoBehaviour
 
     public void CheckVelocity()
     {
-        if(rb.velocity.magnitude > maxSpeed)
+        if (rb.velocity.magnitude > maxSpeed)
         {
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         }
     }
 
-    public void Moving(bool shouldMove) {
+    public void Moving(bool shouldMove)
+    {
         CheckVelocity();
+    }
 
-        if (shouldMove) {
-            //if(OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight)){
-            if(Input.GetKey("d")){
-                rb.AddForce(500 * maxSpeed * Time.deltaTime, 0, 0);
-            }
+    private void GetInput()
+    {
+        h = Input.GetAxis("Horizontal");
+        v = Input.GetAxis("Vertical");
+    }
 
-            //if(OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft)){
-            if(Input.GetKey("a")){
-                rb.AddForce(-500 * maxSpeed * Time.deltaTime, 0, 0);
-            }
-
-            //if(OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp)){
-            if(Input.GetKey("w")){
-                rb.AddForce(0, 0, 500 * maxSpeed * Time.deltaTime);
-            }
-
-            //if(OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown)){
-            if(Input.GetKey("s")){
-                rb.AddForce(0, 0, -500 * maxSpeed * Time.deltaTime);
-            }
-
-            if (Input.GetKey("r")){
-                Thread.Sleep(500);
-                self.Rotate(0f, 90f, 0f);
-            }
-        }
+    public void MovePlayer()
+    {
+        direction = camera.forward * v + camera.right * h;
+        rb.AddForce(direction.normalized * speed * 10, ForceMode.Force);
     }
 
 
     private void OnTriggerStay(Collider other)
     {
-        if (other != null) {
+        if (other != null)
+        {
             interactable = other.GetComponentInParent<Interactable>();
             EventSystem.current.DialogueTrigerEnter(interactable.Id);
-            if(Input.GetKeyDown("e")){
+            if (Input.GetKeyDown("e"))
+            {
                 this.isMoving = false;
                 rb.velocity = Vector3.zero;
-                EventSystem.current.DialogueInteracted(interactable.Id); 
+                
+                EventSystem.current.DialogueInteracted(interactable.Id);
             }
         }
     }
 
-    
     private void OnTriggerExit(Collider other)
     {
 
-        if (other != null) {
+        if (other != null)
+        {
             interactable = other.GetComponentInParent<Interactable>();
             EventSystem.current.DialogueTrigerExit(interactable.Id);
         }
         interactable = null;
-        
+
     }
 
 }

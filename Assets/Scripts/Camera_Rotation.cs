@@ -5,38 +5,77 @@ using UnityEngine;
 
 public class Camera_Rotation : MonoBehaviour {
     [SerializeField]
-    private Transform self;
+    private Transform drone;
+
     [SerializeField]
     private Transform camera;
+    
+    [SerializeField]
+    private float smoothSpeed = 1.25f;
 
-    private float mouseSensitivity = 60f;
+    [SerializeField]
+    private Vector3 offSet;
+
+    private float mouseSensitivity = 150f;
 
     private float xRotation = 0.0f;
 
     private float yRotation = 0.0f;
 
-        float x = 0f;
-        float y = 0f;
+    private bool shouldRotate;
+
+    float x = 0f;
+    float y = 0f;
+
+
     public void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        y = x = 90;
-        yRotation = xRotation = 90;
-
+        EventSystem.current.onDialogueTrigerEnter += onDialogueTrigerEnter;
+        EventSystem.current.onDialogueTrigerExit += onDialogueTrigerExit;
+        this.shouldRotate = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDestroy()
     {
-        
-        x += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        y += Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        Debug.Log(x + "===" + y);
-       
-        xRotation = Mathf.Clamp(x, 0, 360f);
-        yRotation = Mathf.Clamp(x, -180f, 180f);
-        Thread.Sleep(10);
+        EventSystem.current.onDialogueTrigerEnter -= onDialogueTrigerEnter;
+        EventSystem.current.onDialogueTrigerExit -= onDialogueTrigerExit;
+    }
+    // Update is called once per frame
+    private void Update()
+    {
+        Rotate();
+        CheckCameraOffset();
+    }
 
-        camera.localRotation = Quaternion.Euler(self.rotation.eulerAngles);
+    private void CheckCameraOffset() {
+        Vector3 desiredPosition = drone.position + offSet;
+        Vector3 smoothPosition = Vector3.Lerp(camera.position, desiredPosition, smoothSpeed);
+        camera.position = smoothPosition;
+    }
+
+    public void Rotate(){
+        
+        if (shouldRotate)
+        {
+            x = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            y = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+            yRotation += x;
+            xRotation -= y;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+            camera.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            drone.rotation = Quaternion.Euler(0, yRotation, 0);
+        }
+    }
+
+    public void onDialogueTrigerEnter(int id)
+    {
+        shouldRotate = false;
+    }
+
+    public void onDialogueTrigerExit(int id)
+    {
+        shouldRotate = true;
     }
 }
